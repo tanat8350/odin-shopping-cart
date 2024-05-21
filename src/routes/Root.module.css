@@ -1,0 +1,31 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  background-color: orange;
+  border-radius: 8px;
+  padding: 0 32px;
+  position: fixed;
+  width: 80vw;
+  margin: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  ul {
+    display: flex;
+    gap: 16px;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.content {
+  padding-top: 50px;
+  display: grid;
+  justify-content: center;
+}

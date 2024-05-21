@@ -1,0 +1,49 @@
+.card {
+  padding: 8px;
+  border: solid 1px black;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  * {
+    margin: 4px;
+  }
+  img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+.imageContainer {
+  width: 200px;
+  height: 200px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards {
+  display: grid;
+  padding: 16px;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.buttonQty {
+  background-color: orange;
+  color: white;
+  border-radius: 8px;
+  border-width: 0;
+  width: 24px;
+  height: 24px;
+  font-weight: 700;
+}
+
+.buttonAdd {
+  background-color: orange;
+  color: white;
+  border-radius: 8px;
+  border-width: 0;
+  padding: 8px 16px;
+}

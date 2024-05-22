@@ -47,3 +47,21 @@
   border-width: 0;
   padding: 8px 16px;
 }
+
+.inputQty {
+  border-radius: 8px;
+  width: 16px;
+  text-align: center;
+  border-width: 0.8px;
+}
+
+.block {
+  display: block;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}

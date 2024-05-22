@@ -11,23 +11,38 @@ const Card = ({ prop }) => {
       ? prop.title.slice(0, 17).trim() + '...'
       : prop.title;
   const clickIncrement = () => {
-    setQty(qty + 1);
+    setQty(+qty + 1);
   };
   const clickDecrement = () => {
-    qty && setQty(qty - 1);
+    qty && setQty(+qty - 1);
   };
   const clickAddToCart = () => {
-    qty &&
+    if (!qty) return;
+    let found = false;
+    itemCart.reduce((data = [], item) => {
+      if (item.id === prop.id) {
+        item.qty += +qty;
+        found = true;
+      }
+      data.push(item);
+    }, []);
+    if (!found) {
       setItemCart([
         {
           id: prop.id,
           title: prop.title,
           image: prop.image,
           price: prop.price,
-          qty: qty,
+          qty: +qty,
         },
         ...itemCart,
       ]);
+    }
+
+    setQty(0);
+  };
+  const onInput = (e) => {
+    setQty(+e.target.value);
   };
 
   return (
@@ -38,12 +53,19 @@ const Card = ({ prop }) => {
       <h2>{title}</h2>
       <p>Price {prop.price}</p>
       <p>
-        Quantity {qty}{' '}
-        <button className={styles.buttonQty} onClick={clickIncrement}>
-          +
-        </button>{' '}
+        Quantity{' '}
         <button className={styles.buttonQty} onClick={clickDecrement}>
           -
+        </button>
+        <input
+          className={styles.inputQty}
+          type="tel"
+          value={qty}
+          onInput={onInput}
+          maxLength="2"
+        />
+        <button className={styles.buttonQty} onClick={clickIncrement}>
+          +
         </button>
       </p>
       <button className={styles.buttonAdd} onClick={clickAddToCart}>

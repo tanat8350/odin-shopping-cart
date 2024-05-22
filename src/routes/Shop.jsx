@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import Cards from '../components/Cards';
 
-function Shop() {
+const Shop = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products?limit=20', { mode: 'cors' })
+    fetch('https://fakestoreapi.com/products?limit=18', { mode: 'cors' })
       .then((res) => res.json())
       .then((json) => {
         setData(json);
@@ -18,6 +18,6 @@ function Shop() {
       <Cards data={data}></Cards>
     </>
   );
-}
+};
 
 export default Shop;

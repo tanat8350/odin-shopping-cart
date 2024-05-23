@@ -1,9 +1,12 @@
 {
   "name": "odin-shopping-cart",
+  "homepage": "https://tanat8350.github.io/odin-shopping-cart",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "test": "vitest",
     "dev": "vite",
     "build": "vite build",
